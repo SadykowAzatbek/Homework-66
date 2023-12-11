@@ -1,6 +1,7 @@
 import './App.css';
-import {Link, Route, Routes} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import MealsForm from './components/MealsForm/MealsForm';
+import Home from './components/Home/Home';
 
 function App() {
   return (
@@ -10,15 +11,10 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path="/" element={(
-            <>
-              <div className="d-flex justify-content-between p-3 mt-2">
-                <h4>Total calories:  kcal</h4>
-                <Link to="/meals/new" className="btn btn-light">Add new meal</Link>
-              </div>
-            </>
-          )} />
-          <Route path="/meals/:select" element={<MealsForm />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/meals/new" element={<MealsForm />} />
+          <Route path="/meals/:id/edit" element={<MealsForm />} />
+          <Route path="*" element={<h2>Not found!</h2>} />
         </Routes>
       </main>
     </>
